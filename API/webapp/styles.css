@@ -1,0 +1,157 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* =====================
+   header
+===================== */
+body {
+	background-color: #989fa3;
+}
+nav {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 10vh;
+	background-color: #4c4c4c;
+	font-family: 'Oswald', sans-serif;
+	position: relative;
+	width: 100%;
+}
+.logo a {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 40px;
+	color: white;
+}
+
+.members {
+	display: flex;
+	justify-content: space-around;
+	width: 40%;
+}
+
+.members li{
+	list-style: none;
+}
+
+.members a{
+	letter-spacing: 1px;
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
+}
+/* =====================
+   left-side
+===================== */
+.left-side {
+	display:block;
+	float: left;
+	/* color: #535353; */
+	color: white;
+	font-family: 'Oswald', sans-serif;
+	position: relative;
+	width: 50%;
+	margin: 2.5%;
+	text-align: center;
+	background-color: #708e8c;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+.left-side li{
+	list-style: none;
+	padding: 16px;
+	text-align: left;
+}
+/* =====================
+   right-side
+===================== */
+.right-side {
+	display: block;
+	float: right;
+	color:black;
+	font-family: 'Oswald', sans-serif;
+	position: relative;
+	width: 40%;
+	margin: 2.5%;
+	text-align: center;
+}
+
+.right-side li{
+	list-style: none;
+	padding-bottom: 30px;
+}
+
+.right-side a{
+	color: white;
+	border: 2px solid #535353;
+	padding: 3px;
+	width: 60%;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 10px;
+	background-color: #708e8c;
+}
+.right-side a:hover {
+	color: orange;
+}
+/* =====================
+   response
+===================== */
+.movieList {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	width: 100%;
+}
+
+.movie {
+	margin: 20px;
+	border: 2px solid black;
+	border-radius: 10px;
+	font-family: Calibri;
+	background-color: #708e8c;
+	color: 	#DCDCDC;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		"a"
+		"b";
+}
+
+.movie a {
+	grid-area: a;
+	justify-self: center;
+}
+
+.moviePicture{
+	width: 150px;
+	margin:15px;
+}
+
+.movieInfo{
+	grid-area: b;
+	list-style-type: none;
+	background: transparent;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
+.movieInfo a:link, a:visited {
+	color: white;
+}
+.movieInfo a:hover {
+	color: orange;
+}
+
+.form-inline {
+	display: inline-flex;
+}
+
+.actorList {
+	display: inline-block;
+	padding-left: 30px;
+	padding-bottom: 10px;
+}

@@ -1,0 +1,2751 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is an API for the Web App to be developed that builds on the IMDB Movies Dataset available at Kaggle.",
+    "version": "1.0.0",
+    "title": "Web App"
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/api/movies": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "All the available information about a movie from Kaggle",
+        "description": "",
+        "operationId": "getInformationMoviesKaggle",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "description": "The Title of the Movie",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "imdb_url",
+            "in": "query",
+            "description": "The IMDB URL of the Movie",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rel": {
+                        "type": "string"
+                      },
+                      "method": {
+                        "type": "string"
+                      },
+                      "href": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                },
+                "page": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "rating": {
+                        "type": "string"
+                      },
+                      "year": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "users_rating": {
+                        "type": "string"
+                      },
+                      "votes": {
+                        "type": "string"
+                      },
+                      "metascore": {
+                        "type": "string"
+                      },
+                      "img_url": {
+                        "type": "string"
+                      },
+                      "countries": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "languages": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "actors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "genre": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tagline": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "directors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "runtime": {
+                        "type": "string"
+                      },
+                      "imdb_url": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "links": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "rel": {
+                              "type": "string"
+                            },
+                            "method": {
+                              "type": "string"
+                            },
+                            "href": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "links": [
+                  {
+                    "rel": "self",
+                    "method": "GET",
+                    "href": "/api/movies?limit=50"
+                  },
+                  {
+                    "rel": "first",
+                    "method": "GET",
+                    "href": "/api/movies?limit=50"
+                  },
+                  {
+                    "rel": "prev",
+                    "method": "GET",
+                    "href": "/api/movies?limit=50"
+                  },
+                  {
+                    "rel": "next",
+                    "method": "GET",
+                    "href": "/api/movies?limit=50&page=2"
+                  }
+                ],
+                "page": 1,
+                "results": [
+                  {
+                    "title": "A Rainy Day in New York",
+                    "rating": "PG-13",
+                    "year": 2019,
+                    "users_rating": "6.6",
+                    "votes": "21,903",
+                    "metascore": "44.0",
+                    "img_url": "https://m.media-amazon.com/images/M/MV5BODAwZDlhZjUtYzM2MS00MGVmLWFjNWMtODc5NjM2OTNkNjExXkEyXkFqcGdeQXVyMzIzNDU1NTY@._V1_UX182_CR0,0,182,268_AL__QL50.jpg",
+                    "countries": "['USA']",
+                    "languages": "['English']",
+                    "actors": "['Timothée Chalamet', 'Elle Fanning', 'Liev Schreiber', 'Suzanne Smith', 'Olivia Boreham-Wing', 'Ben Warheit', 'Griffin Newman', 'Selena Gomez', 'Gus Birney', 'Elijah Boothe', 'Will Rogers', 'Annaleigh Ashford', 'Jude Law', 'Frank Marzullo', 'Kirby Mitchell']",
+                    "genre": "['Comedy', 'Romance']",
+                    "tagline": "",
+                    "description": "A young couple arrives in New York for a weekend where they are met with bad weather and a series of adventures.",
+                    "directors": "['Woody Allen']",
+                    "runtime": "92 min",
+                    "imdb_url": "https://www.imdb.com/title/tt7139936/",
+                    "id": 1,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/movies/id/1"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Murder Manual",
+                    "rating": "18",
+                    "year": 2020,
+                    "users_rating": "2.4",
+                    "votes": "192",
+                    "metascore": "",
+                    "img_url": "https://m.media-amazon.com/images/M/MV5BMDI5ZDU2OWItZTkyMy00NTYwLTgwNjktNGRjNjgxNzJkM2M1XkEyXkFqcGdeQXVyMjY5ODU3OA@@._V1_UY268_CR9,0,182,268_AL__QL50.jpg",
+                    "countries": "['USA']",
+                    "languages": "['English']",
+                    "actors": "['Emilia Clarke', 'Hadley Fraser', 'Sylvia Panacione', 'Maria Olsen', 'Brittany Samson', 'Milly Sanders', 'Melanie Cruz', 'Van Hansis', 'Sally Hughes', 'Anthony Goss', 'Bryan Manley Davis', 'Sophie Knapp', 'Jeff Torres', 'Joe Reegan', 'Frida Rossi']",
+                    "genre": "['Horror', 'Thriller']",
+                    "tagline": "When it comes to murder, they wrote the book",
+                    "description": "Creepy, terrifying chapters from our book of horror include a little girl's journey from a world of nightmares into the nightmare of reality, a gay couple's romantic getaway in Palm Springs...",
+                    "directors": "['Michael Escobedo', 'Kelly Hallmark', '4 more credits']",
+                    "runtime": "91 min",
+                    "imdb_url": "https://www.imdb.com/title/tt12384178/",
+                    "id": 2,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/movies/id/2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "title": {
+                "type": "string",
+                "description": "The Title of the Movie"
+              },
+              "rating": {
+                "type": "string",
+                "description": "The Rating of the Movie"
+              },
+              "year": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Release Year of the Movie"
+              },
+              "users_rating": {
+                "type": "string",
+                "description": "The Users Rating of the Movie"
+              },
+              "votes": {
+                "type": "string",
+                "description": "The Votes on the Movie"
+              },
+              "metascore": {
+                "type": "string",
+                "description": "The Metascore of the Movie"
+              },
+              "img_url": {
+                "type": "string",
+                "description": "The URL of the Image"
+              },
+              "countries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Countries the Movie was Filmed"
+              },
+              "languages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Languages the Movie is Available"
+              },
+              "actors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Actors in the Movie"
+              },
+              "genre": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Genres of the Movie"
+              },
+              "tagline": {
+                "type": "string",
+                "description": "The Tagline of the Movie"
+              },
+              "description": {
+                "type": "string",
+                "description": "The Description of the Movie"
+              },
+              "directors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Directors of the Movie"
+              },
+              "runtime": {
+                "type": "string",
+                "description": "The Runtime of the Movie"
+              },
+              "imdb_url": {
+                "type": "string",
+                "description": "The URL of the IMDB Page of the Movie"
+              },
+              "id": {
+                "type": "integer",
+                "description": "The ID of the Movie"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/movies/id/{id}": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "All the available information about a movie found by the ID of the movie",
+        "description": "",
+        "operationId": "getInformationMoviesID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the Movie",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "rating": {
+                  "type": "string"
+                },
+                "year": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "users_rating": {
+                  "type": "string"
+                },
+                "votes": {
+                  "type": "string"
+                },
+                "metascore": {
+                  "type": "string"
+                },
+                "img_url": {
+                  "type": "string"
+                },
+                "countries": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "languages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "genre": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "tagline": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "directors": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "runtime": {
+                  "type": "string"
+                },
+                "imdb_url": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rel": {
+                        "type": "string"
+                      },
+                      "method": {
+                        "type": "string"
+                      },
+                      "href": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "title": "A Rainy Day in New York",
+                "rating": "PG-13",
+                "year": 2019,
+                "users_rating": "6.6",
+                "votes": "21,903",
+                "metascore": "44.0",
+                "img_url": "https://m.media-amazon.com/images/M/MV5BODAwZDlhZjUtYzM2MS00MGVmLWFjNWMtODc5NjM2OTNkNjExXkEyXkFqcGdeQXVyMzIzNDU1NTY@._V1_UX182_CR0,0,182,268_AL__QL50.jpg",
+                "countries": "['USA']",
+                "languages": "['English']",
+                "actors": "['Timothée Chalamet', 'Elle Fanning', 'Liev Schreiber', 'Suzanne Smith', 'Olivia Boreham-Wing', 'Ben Warheit', 'Griffin Newman', 'Selena Gomez', 'Gus Birney', 'Elijah Boothe', 'Will Rogers', 'Annaleigh Ashford', 'Jude Law', 'Frank Marzullo', 'Kirby Mitchell']",
+                "genre": "['Comedy', 'Romance']",
+                "tagline": "",
+                "description": "A young couple arrives in New York for a weekend where they are met with bad weather and a series of adventures.",
+                "directors": "['Woody Allen']",
+                "runtime": "92 min",
+                "imdb_url": "https://www.imdb.com/title/tt7139936/",
+                "id": 1,
+                "links": [
+                  {
+                    "rel": "self",
+                    "method": "GET",
+                    "href": "/api/movies/id/1"
+                  },
+                  {
+                    "rel": "omdb",
+                    "method": "GET",
+                    "href": "/api/omdb/A Rainy Day in New York"
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "title": {
+                "type": "string",
+                "description": "The Title of the Movie"
+              },
+              "rating": {
+                "type": "string",
+                "description": "The Rating of the Movie"
+              },
+              "year": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Release Year of the Movie"
+              },
+              "users_rating": {
+                "type": "string",
+                "description": "The Users Rating of the Movie"
+              },
+              "votes": {
+                "type": "string",
+                "description": "The Votes on the Movie"
+              },
+              "metascore": {
+                "type": "string",
+                "description": "The Metascore of the Movie"
+              },
+              "img_url": {
+                "type": "string",
+                "description": "The URL of the Image"
+              },
+              "countries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Countries the Movie was Filmed"
+              },
+              "languages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Languages the Movie is Available"
+              },
+              "actors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Actors in the Movie"
+              },
+              "genre": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Genres of the Movie"
+              },
+              "tagline": {
+                "type": "string",
+                "description": "The Tagline of the Movie"
+              },
+              "description": {
+                "type": "string",
+                "description": "The Description of the Movie"
+              },
+              "directors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Directors of the Movie"
+              },
+              "runtime": {
+                "type": "string",
+                "description": "The Runtime of the Movie"
+              },
+              "imdb_url": {
+                "type": "string",
+                "description": "The URL of the IMDB Page of the Movie"
+              },
+              "id": {
+                "type": "integer",
+                "description": "The ID of the Movie"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/movies/genre/{genre}": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "All the movies by a genre",
+        "description": "",
+        "operationId": "getMoviesByGenre",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "genre",
+            "in": "path",
+            "description": "A Movie Genre",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rel": {
+                        "type": "string"
+                      },
+                      "method": {
+                        "type": "string"
+                      },
+                      "href": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                },
+                "page": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "rating": {
+                        "type": "string"
+                      },
+                      "year": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "users_rating": {
+                        "type": "string"
+                      },
+                      "votes": {
+                        "type": "string"
+                      },
+                      "metascore": {
+                        "type": "string"
+                      },
+                      "img_url": {
+                        "type": "string"
+                      },
+                      "countries": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "languages": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "actors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "genre": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tagline": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "directors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "runtime": {
+                        "type": "string"
+                      },
+                      "imdb_url": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "links": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "rel": {
+                              "type": "string"
+                            },
+                            "method": {
+                              "type": "string"
+                            },
+                            "href": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "links": [
+                  {
+                    "rel": "self",
+                    "method": "GET",
+                    "href": "/api/movies/genre/Horror?limit=50"
+                  },
+                  {
+                    "rel": "first",
+                    "method": "GET",
+                    "href": "/api/movies/genre/Horror?limit=50"
+                  },
+                  {
+                    "rel": "prev",
+                    "method": "GET",
+                    "href": "/api/movies/genre/Horror?limit=50"
+                  },
+                  {
+                    "rel": "next",
+                    "method": "GET",
+                    "href": "/api/movies/genre/Horror?limit=50&page=2"
+                  }
+                ],
+                "page": 1,
+                "results": [
+                  {
+                    "title": "Murder Manual",
+                    "rating": "18",
+                    "year": 2020,
+                    "users_rating": "2.4",
+                    "votes": "192",
+                    "metascore": "",
+                    "img_url": "https://m.media-amazon.com/images/M/MV5BMDI5ZDU2OWItZTkyMy00NTYwLTgwNjktNGRjNjgxNzJkM2M1XkEyXkFqcGdeQXVyMjY5ODU3OA@@._V1_UY268_CR9,0,182,268_AL__QL50.jpg",
+                    "countries": "['USA']",
+                    "languages": "['English']",
+                    "actors": "['Emilia Clarke', 'Hadley Fraser', 'Sylvia Panacione', 'Maria Olsen', 'Brittany Samson', 'Milly Sanders', 'Melanie Cruz', 'Van Hansis', 'Sally Hughes', 'Anthony Goss', 'Bryan Manley Davis', 'Sophie Knapp', 'Jeff Torres', 'Joe Reegan', 'Frida Rossi']",
+                    "genre": "['Horror', 'Thriller']",
+                    "tagline": "When it comes to murder, they wrote the book",
+                    "description": "Creepy, terrifying chapters from our book of horror include a little girl's journey from a world of nightmares into the nightmare of reality, a gay couple's romantic getaway in Palm Springs...",
+                    "directors": "['Michael Escobedo', 'Kelly Hallmark', '4 more credits']",
+                    "runtime": "91 min",
+                    "imdb_url": "https://www.imdb.com/title/tt12384178/",
+                    "id": 2
+                  },
+                  {
+                    "title": "Gretel & Hansel",
+                    "rating": "PG-13",
+                    "year": 2020,
+                    "users_rating": "5.3",
+                    "votes": "15,051",
+                    "metascore": "64.0",
+                    "img_url": "https://m.media-amazon.com/images/M/MV5BOTIyYWJjZDctODY4OC00NWExLWE2NTktZmY0MWY2YWZjMWIxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL__QL50.jpg",
+                    "countries": "['Canada', 'Ireland', 'USA', 'South Africa']",
+                    "languages": "['English']",
+                    "actors": "['Sophia Lillis', 'Samuel Leakey', 'Alice Krige', 'Jessica De Gouw', \"Fiona O'Shaughnessy\", 'Donncha Crowley', 'Jonathan Gunning', 'Charles Babalola', 'Giulia Doherty', 'Jonathan Delaney Tynan', 'Darlene Garr', 'Melody Carrillo', 'Nessa Last', \"Harry O'Cualacháin\"]",
+                    "genre": "['Fantasy', 'Horror', 'Mystery', 'Thriller']",
+                    "tagline": "Follow the crumbs.",
+                    "description": "A long time ago in a distant fairy tale countryside, a young girl leads her little brother into a dark wood in desperate search of food and work, only to stumble upon a nexus of terrifying evil.",
+                    "directors": "['Oz Perkins']",
+                    "runtime": "87 min",
+                    "imdb_url": "https://www.imdb.com/title/tt9086228/",
+                    "id": 6,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/movies/id/6"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "title": {
+                "type": "string",
+                "description": "The Title of the Movie"
+              },
+              "rating": {
+                "type": "string",
+                "description": "The Rating of the Movie"
+              },
+              "year": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Release Year of the Movie"
+              },
+              "users_rating": {
+                "type": "string",
+                "description": "The Users Rating of the Movie"
+              },
+              "votes": {
+                "type": "string",
+                "description": "The Votes on the Movie"
+              },
+              "metascore": {
+                "type": "string",
+                "description": "The Metascore of the Movie"
+              },
+              "img_url": {
+                "type": "string",
+                "description": "The URL of the Image"
+              },
+              "countries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Countries the Movie was Filmed"
+              },
+              "languages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Languages the Movie is Available"
+              },
+              "actors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Actors in the Movie"
+              },
+              "genre": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Genres of the Movie"
+              },
+              "tagline": {
+                "type": "string",
+                "description": "The Tagline of the Movie"
+              },
+              "description": {
+                "type": "string",
+                "description": "The Description of the Movie"
+              },
+              "directors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Directors of the Movie"
+              },
+              "runtime": {
+                "type": "string",
+                "description": "The Runtime of the Movie"
+              },
+              "imdb_url": {
+                "type": "string",
+                "description": "The URL of the IMDB Page of the Movie"
+              },
+              "id": {
+                "type": "integer",
+                "description": "The ID of the Movie"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/movies/people/{name}": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "All the movies by an actor or a director",
+        "description": "",
+        "operationId": "getStatisticsPopularityMovies",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The Name of the Actor or the Director",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "The Release Year of the Movie",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rel": {
+                        "type": "string"
+                      },
+                      "method": {
+                        "type": "string"
+                      },
+                      "href": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                },
+                "page": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "rating": {
+                        "type": "string"
+                      },
+                      "year": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "users_rating": {
+                        "type": "string"
+                      },
+                      "votes": {
+                        "type": "string"
+                      },
+                      "metascore": {
+                        "type": "string"
+                      },
+                      "img_url": {
+                        "type": "string"
+                      },
+                      "countries": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "languages": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "actors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "genre": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tagline": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "directors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "runtime": {
+                        "type": "string"
+                      },
+                      "imdb_url": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "links": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "rel": {
+                              "type": "string"
+                            },
+                            "method": {
+                              "type": "string"
+                            },
+                            "href": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "links": [
+                  {
+                    "rel": "self",
+                    "method": "GET",
+                    "href": "/api/movies/people/Elle Fanning?limit=50"
+                  },
+                  {
+                    "rel": "first",
+                    "method": "GET",
+                    "href": "/api/movies/people/Elle Fanning?limit=50"
+                  },
+                  {
+                    "rel": "prev",
+                    "method": "GET",
+                    "href": "/api/movies/people/Elle Fanning?limit=50"
+                  },
+                  {
+                    "rel": "next",
+                    "method": "GET",
+                    "href": "/api/movies/people/Elle Fanning?limit=50&page=2"
+                  }
+                ],
+                "page": 1,
+                "results": [
+                  {
+                    "title": "All the Bright Places",
+                    "rating": "TV-MA",
+                    "year": 2020,
+                    "users_rating": "6.5",
+                    "votes": "15,064",
+                    "metascore": "61.0",
+                    "img_url": "https://m.media-amazon.com/images/M/MV5BY2FkY2E1OTgtYmFhYi00NzczLThjYjktNDljN2ZiZGY4OGIzXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL__QL50.jpg",
+                    "countries": "['USA']",
+                    "languages": "['English']",
+                    "actors": "['Elle Fanning', 'Justice Smith', 'Alexandra Shipp', \"Kelli O'Hara\", 'Lamar Johnson', 'Virginia Gardner', 'Felix Mallard', 'Sofia Hasmik', 'Keegan-Michael Key', 'Luke Wilson', 'Chris Grace', 'Sharon Ivers', 'Isabella Fay', 'Nicole Forester', 'Sara Katrenich']",
+                    "genre": "['Drama', 'Romance']",
+                    "tagline": "Live Life at Full Brightness",
+                    "description": "The story of Violet and Theodore, who meet and change each other's lives forever. As they struggle with the emotional and physical scars of their past, they discover that even the smallest places and moments can mean something.",
+                    "directors": "['Brett Haley']",
+                    "runtime": "107 min",
+                    "imdb_url": "https://www.imdb.com/title/tt3907584/",
+                    "id": 53504,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/movies/id/53504"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "The Roads Not Taken",
+                    "rating": "R",
+                    "year": 2020,
+                    "users_rating": "4.7",
+                    "votes": "563",
+                    "metascore": "39.0",
+                    "img_url": "https://m.media-amazon.com/images/M/MV5BN2UyM2U3NTctNTRlOS00Yzg5LTgxZTItNmM0MWE4ODEwMjg1XkEyXkFqcGdeQXVyNDY2MjcyOTQ@._V1_UX182_CR0,0,182,268_AL__QL50.jpg",
+                    "countries": "['UK', 'Sweden', 'USA', 'Poland', 'Spain']",
+                    "languages": "['English']",
+                    "actors": "['Javier Bardem', 'Elle Fanning', 'Branka Katic', 'Salma Hayek', 'Dimitri Andreas', 'Katia Mullova-Brind', 'Milena Tscharntke', 'Debora Weston', 'Aaron Joshua', 'Sabina Cameron', 'Griffin Stevens', 'Laura Linney', 'Catherine Levi', 'Ruth Keeling', 'Olan Montgomery']",
+                    "genre": "['Drama']",
+                    "tagline": "One Man's Journey Into His Mind",
+                    "description": "Sally Potter's film follows a day in the life of Leo (Javier Bardem) and his daughter, Molly (Elle Fanning), as he floats through alternate lives he could have lived, leading Molly to wrestle with her own path as she considers her future.",
+                    "directors": "['Sally Potter']",
+                    "runtime": "85 min",
+                    "imdb_url": "https://www.imdb.com/title/tt9411866/",
+                    "id": 51188,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/movies/id/51188"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "title": {
+                "type": "string",
+                "description": "The Title of the Movie"
+              },
+              "rating": {
+                "type": "string",
+                "description": "The Rating of the Movie"
+              },
+              "year": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Release Year of the Movie"
+              },
+              "users_rating": {
+                "type": "string",
+                "description": "The Users Rating of the Movie"
+              },
+              "votes": {
+                "type": "string",
+                "description": "The Votes on the Movie"
+              },
+              "metascore": {
+                "type": "string",
+                "description": "The Metascore of the Movie"
+              },
+              "img_url": {
+                "type": "string",
+                "description": "The URL of the Image"
+              },
+              "countries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Countries the Movie was Filmed"
+              },
+              "languages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Languages the Movie is Available"
+              },
+              "actors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Actors in the Movie"
+              },
+              "genre": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Genres of the Movie"
+              },
+              "tagline": {
+                "type": "string",
+                "description": "The Tagline of the Movie"
+              },
+              "description": {
+                "type": "string",
+                "description": "The Description of the Movie"
+              },
+              "directors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Directors of the Movie"
+              },
+              "runtime": {
+                "type": "string",
+                "description": "The Runtime of the Movie"
+              },
+              "imdb_url": {
+                "type": "string",
+                "description": "The URL of the IMDB Page of the Movie"
+              },
+              "id": {
+                "type": "integer",
+                "description": "The ID of the Movie"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/movies/popularity": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "An ordering of the movies ranked by popularity from more to less",
+        "description": "",
+        "operationId": "getPopularity",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The Limit of Movies to be Shown",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The Number of Pages to be Shown",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The Number of Movies to be Skipped",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "total",
+            "in": "query",
+            "description": "The Total of Movies to be Shown",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rel": {
+                        "type": "string"
+                      },
+                      "method": {
+                        "type": "string"
+                      },
+                      "href": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                },
+                "page": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "rating": {
+                        "type": "string"
+                      },
+                      "year": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "users_rating": {
+                        "type": "string"
+                      },
+                      "votes": {
+                        "type": "string"
+                      },
+                      "metascore": {
+                        "type": "string"
+                      },
+                      "img_url": {
+                        "type": "string"
+                      },
+                      "countries": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "languages": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "actors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "genre": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tagline": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "directors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "runtime": {
+                        "type": "string"
+                      },
+                      "imdb_url": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "links": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "rel": {
+                              "type": "string"
+                            },
+                            "method": {
+                              "type": "string"
+                            },
+                            "href": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "links": [
+                  {
+                    "rel": "self",
+                    "method": "GET",
+                    "href": "/api/movies/popularity?limit=50"
+                  },
+                  {
+                    "rel": "first",
+                    "method": "GET",
+                    "href": "/api/movies/popularity?limit=50"
+                  },
+                  {
+                    "rel": "prev",
+                    "method": "GET",
+                    "href": "/api/movies/popularity?limit=50"
+                  },
+                  {
+                    "rel": "next",
+                    "method": "GET",
+                    "href": "/api/movies/popularity?limit=50&page=2"
+                  }
+                ],
+                "page": 1,
+                "results": [
+                  {
+                    "title": "In Your Afterglow",
+                    "rating": "",
+                    "year": 2020,
+                    "users_rating": "9.9",
+                    "votes": "9",
+                    "metascore": "",
+                    "img_url": "https://m.media-amazon.com/images/M/MV5BNWE1MzEyOTktNTgzMi00ZGRhLTgzZDItZTkzZDUzMWIyMTIyXkEyXkFqcGdeQXVyMzEyNjU0OTM@._V1_UY268_CR163,0,182,268_AL__QL50.jpg",
+                    "countries": "['USA']",
+                    "languages": "['English']",
+                    "actors": "['Trish McGee', 'Caroline Kearns', 'Rich Henkels', 'Philippe Kane', 'Wyatt Gutridge', 'Moriah Forry', 'Brandon Flemmons', 'Robert Godfrey', 'Luke MacCloskey', 'Ned Walsh', 'Perri Druen', 'Christina Myers', 'Mary Avgerinos', 'Kim Hogeman', 'Blanda Nace']",
+                    "genre": "['Drama', 'Romance']",
+                    "tagline": "",
+                    "description": "A tormented psychology professor exploits the gift of a reluctant autistic girl to uncover the mystery of her past life.",
+                    "directors": "['Mike Gutridge']",
+                    "runtime": "",
+                    "imdb_url": "https://www.imdb.com/title/tt10836742/",
+                    "id": 34271,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/movies/id/34271"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Where Were You",
+                    "rating": "",
+                    "year": 2019,
+                    "users_rating": "9.8",
+                    "votes": "5",
+                    "metascore": "",
+                    "img_url": "https://m.media-amazon.com/images/M/MV5BMDE3ODM5ZjMtYzA2NS00YWViLWI5NzAtNTA4ODYzN2I0MTBmXkEyXkFqcGdeQXVyODUwMzQ3NTc@._V1_UX182_CR0,0,182,268_AL__QL50.jpg",
+                    "countries": "['USA']",
+                    "languages": "['English']",
+                    "actors": "['Maria Natapov', 'John Campeau', 'Eric Falter', 'Thomas McCormick', 'Amy Thomason', 'Solange Elkallassi', 'Greg Genatossio', 'Walter Stone', 'Josh Haddad', 'Jeffrey Roach']",
+                    "genre": "['Drama']",
+                    "tagline": "The day that changed how we live, forever.",
+                    "description": "A self centered radio personality, learns the most valuable life lesson on the morning of September 11, 2001 - humility. The ever growing popularity of the Paul Lavigan Morning Show takes ...",
+                    "directors": "['Rob Levinson']",
+                    "runtime": "",
+                    "imdb_url": "https://www.imdb.com/title/tt10005030/",
+                    "id": 15445,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/movies/id/15445"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "title": {
+                "type": "string",
+                "description": "The Title of the Movie"
+              },
+              "rating": {
+                "type": "string",
+                "description": "The Rating of the Movie"
+              },
+              "year": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Release Year of the Movie"
+              },
+              "users_rating": {
+                "type": "string",
+                "description": "The Users Rating of the Movie"
+              },
+              "votes": {
+                "type": "string",
+                "description": "The Votes on the Movie"
+              },
+              "metascore": {
+                "type": "string",
+                "description": "The Metascore of the Movie"
+              },
+              "img_url": {
+                "type": "string",
+                "description": "The URL of the Image"
+              },
+              "countries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Countries the Movie was Filmed"
+              },
+              "languages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Languages the Movie is Available"
+              },
+              "actors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Actors in the Movie"
+              },
+              "genre": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Genres of the Movie"
+              },
+              "tagline": {
+                "type": "string",
+                "description": "The Tagline of the Movie"
+              },
+              "description": {
+                "type": "string",
+                "description": "The Description of the Movie"
+              },
+              "directors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Directors of the Movie"
+              },
+              "runtime": {
+                "type": "string",
+                "description": "The Runtime of the Movie"
+              },
+              "imdb_url": {
+                "type": "string",
+                "description": "The URL of the IMDB Page of the Movie"
+              },
+              "id": {
+                "type": "integer",
+                "description": "The ID of the Movie"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/omdb/{title}": {
+      "get": {
+        "tags": [
+          "omdb"
+        ],
+        "summary": "All the available information about a movie from OMDB",
+        "description": "",
+        "operationId": "getGenresByYear",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "title",
+            "description": "The Title of the Movie",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Title": {
+                  "type": "string"
+                },
+                "Year": {
+                  "type": "string"
+                },
+                "Rated": {
+                  "type": "string"
+                },
+                "Released": {
+                  "type": "string"
+                },
+                "Runtime": {
+                  "type": "string"
+                },
+                "Genre": {
+                  "type": "string"
+                },
+                "Director": {
+                  "type": "string"
+                },
+                "Writer": {
+                  "type": "string"
+                },
+                "Actors": {
+                  "type": "string"
+                },
+                "Plot": {
+                  "type": "string"
+                },
+                "Language": {
+                  "type": "string"
+                },
+                "Country": {
+                  "type": "string"
+                },
+                "Awards": {
+                  "type": "string"
+                },
+                "Poster": {
+                  "type": "string"
+                },
+                "Ratings": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Source": {
+                        "type": "string"
+                      },
+                      "Value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "Metascore": {
+                  "type": "string"
+                },
+                "imdbRating": {
+                  "type": "string"
+                },
+                "imdbVotes": {
+                  "type": "string"
+                },
+                "imdbID": {
+                  "type": "string"
+                },
+                "Type": {
+                  "type": "string"
+                },
+                "DVD": {
+                  "type": "string"
+                },
+                "BoxOffice": {
+                  "type": "string"
+                },
+                "Production": {
+                  "type": "string"
+                },
+                "Website": {
+                  "type": "string"
+                },
+                "Response": {
+                  "type": "string"
+                },
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rel": {
+                        "type": "string"
+                      },
+                      "method": {
+                        "type": "string"
+                      },
+                      "href": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "Title": "1917",
+                "Year": "2019",
+                "Rated": "R",
+                "Released": "10 Jan 2020",
+                "Runtime": "119 min",
+                "Genre": "Drama, Thriller, War",
+                "Director": "Sam Mendes",
+                "Writer": "Sam Mendes, Krysty Wilson-Cairns",
+                "Actors": "Dean-Charles Chapman, George MacKay, Daniel Mays, Colin Firth",
+                "Plot": "April 6th, 1917. As a regiment assembles to wage war deep in enemy territory, two soldiers are assigned to race against time and deliver a message that will stop 1,600 men from walking straight into a deadly trap.",
+                "Language": "English, French, German",
+                "Country": "USA, UK, India, Spain, Canada, China",
+                "Awards": "Won 3 Oscars. Another 107 wins & 168 nominations.",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BOTdmNTFjNDEtNzg0My00ZjkxLTg1ZDAtZTdkMDc2ZmFiNWQ1XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_SX300.jpg",
+                "Ratings": [
+                  {
+                    "Source": "Internet Movie Database",
+                    "Value": "8.3/10"
+                  },
+                  {
+                    "Source": "Rotten Tomatoes",
+                    "Value": "88%"
+                  },
+                  {
+                    "Source": "Metacritic",
+                    "Value": "78/100"
+                  }
+                ],
+                "Metascore": "78",
+                "imdbRating": "8.3",
+                "imdbVotes": "416,038",
+                "imdbID": "tt8579674",
+                "Type": "movie",
+                "DVD": "N/A",
+                "BoxOffice": "$159,227,644",
+                "Production": "Neal Street Productions, Amblin Entertainment",
+                "Website": "N/A",
+                "Response": "True",
+                "links": [
+                  {
+                    "rel": "self",
+                    "method": "GET",
+                    "href": "/api/omdb/1917"
+                  }
+                ]
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/actors": {
+      "get": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "All the actors ",
+        "description": "",
+        "operationId": "getActors",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "description": "The Name of the Actor",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rel": {
+                        "type": "string"
+                      },
+                      "method": {
+                        "type": "string"
+                      },
+                      "href": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                },
+                "page": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "links": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "rel": {
+                              "type": "string"
+                            },
+                            "method": {
+                              "type": "string"
+                            },
+                            "href": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "links": [
+                  {
+                    "rel": "self",
+                    "method": "GET",
+                    "href": "/api/actors?limit=50"
+                  },
+                  {
+                    "rel": "first",
+                    "method": "GET",
+                    "href": "/api/actors?limit=50"
+                  },
+                  {
+                    "rel": "prev",
+                    "method": "GET",
+                    "href": "/api/actors?limit=50"
+                  },
+                  {
+                    "rel": "next",
+                    "method": "GET",
+                    "href": "/api/actors?limit=50&page=2"
+                  }
+                ],
+                "page": 1,
+                "results": [
+                  {
+                    "name": "$2 Tony",
+                    "id": 1,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/actors/id/1"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "'Ace Primo' Niko Warren",
+                    "id": 2,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/actors/id/2"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "'Ace' Reitman",
+                    "id": 3,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/actors/id/3"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "name": {
+                "type": "string",
+                "description": "The Name of the Actor"
+              },
+              "id": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The ID of the Actor"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/actors/id/{id}": {
+      "get": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "Get an actor by the ID",
+        "description": "",
+        "operationId": "getActorWithID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The ID of the Actor",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "links": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "rel": {
+                          "type": "string"
+                        },
+                        "method": {
+                          "type": "string"
+                        },
+                        "href": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "name": "$2 Tony",
+                  "id": 1,
+                  "links": [
+                    {
+                      "rel": "see",
+                      "method": "GET",
+                      "href": "/api/actors/id/1"
+                    }
+                  ]
+                }
+              ]
+            },
+            "headers": {
+              "name": {
+                "type": "string",
+                "description": "The Name of the Actor"
+              },
+              "id": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The ID of the Actor"
+              },
+              "links": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Parts of the HTTP Request"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/actors/{actorname}": {
+      "get": {
+        "tags": [
+          "actors"
+        ],
+        "summary": "Get an actor by the name",
+        "description": "",
+        "operationId": "getActorWithName",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "actorname",
+            "description": "The Name of the Actor",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "links": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "rel": {
+                          "type": "string"
+                        },
+                        "method": {
+                          "type": "string"
+                        },
+                        "href": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "name": "Emilia Clarke",
+                  "id": 90896,
+                  "links": [
+                    {
+                      "rel": "see",
+                      "method": "GET",
+                      "href": "/api/actors/id/90896"
+                    }
+                  ]
+                }
+              ]
+            },
+            "headers": {
+              "name": {
+                "type": "string",
+                "description": "The Name of the Actor"
+              },
+              "id": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The ID of the Actor"
+              },
+              "links": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Parts of the HTTP Request"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/genre/people/{name}": {
+      "get": {
+        "tags": [
+          "genre"
+        ],
+        "summary": "All the genres for an actor or a director",
+        "description": "",
+        "operationId": "getGenres",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "description": "The Name of the Actor or the Director",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": [
+                "Action",
+                "Adventure",
+                "Animation",
+                "Biography",
+                "Comedy",
+                "Crime",
+                "Drama",
+                "Family",
+                "Fantasy",
+                "History",
+                "Horror",
+                "Music",
+                "Mystery",
+                "Romance",
+                "Sci-Fi",
+                "Thriller",
+                "Western"
+              ]
+            },
+            "headers": {
+              "genres": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Genres of the Movies"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/genre/people/{name}/year": {
+      "get": {
+        "tags": [
+          "genre"
+        ],
+        "summary": "All the genres for an actor or a director ordered by year",
+        "description": "",
+        "operationId": "getGenresActorByYear",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "description": "The Name of the Actor or the Director",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "description": "The Order of the Years (DESC/ASC)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "genre": {
+                    "type": "string"
+                  },
+                  "year": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "example": [
+                {
+                  "genre": "['Horror', 'Thriller']",
+                  "year": 2020
+                },
+                {
+                  "genre": "['Comedy', 'Drama', 'Romance']",
+                  "year": 2019
+                },
+                {
+                  "genre": "['Action', 'Crime', 'Thriller']",
+                  "year": 2019
+                },
+                {
+                  "genre": "['Action', 'Adventure', 'Sci-Fi']",
+                  "year": 2018
+                },
+                {
+                  "genre": "['Drama', 'Mystery', 'Thriller']",
+                  "year": 2017
+                },
+                {
+                  "genre": "['Drama', 'Romance']",
+                  "year": 2016
+                },
+                {
+                  "genre": "['Action', 'Adventure', 'Sci-Fi', 'Thriller']",
+                  "year": 2015
+                }
+              ]
+            },
+            "headers": {
+              "genre": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Genres of the Movie"
+              },
+              "year": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Release Year of the Movie"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/statistics/people/{name}": {
+      "get": {
+        "tags": [
+          "statistics"
+        ],
+        "summary": "Statistics for the popularity of all movies for an actor",
+        "description": "",
+        "operationId": "getStatistics",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The Name of the Actor",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "mean": {
+                  "type": "number"
+                },
+                "median": {
+                  "type": "number"
+                },
+                "std": {
+                  "type": "number"
+                }
+              },
+              "example": {
+                "mean": 5.771428571428571,
+                "median": 6.4,
+                "std": 1.5387511501346853
+              }
+            },
+            "headers": {
+              "mean": {
+                "type": "number",
+                "format": "float",
+                "description": "The Mean of the Rating"
+              },
+              "median": {
+                "type": "number",
+                "format": "float",
+                "description": "The Median of the Rating"
+              },
+              "std": {
+                "type": "number",
+                "format": "float",
+                "description": "The Standard Deviation of the Rating"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/movies/popularity/year/{year}": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "An ordering of movies in a specific year ranked by popularity",
+        "description": "",
+        "operationId": "getPopularityByYear",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "description": "The Release Year of the Movie",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "contentType",
+            "in": "query",
+            "description": "The Content Type of the Response (JSON/CSV)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rel": {
+                        "type": "string"
+                      },
+                      "method": {
+                        "type": "string"
+                      },
+                      "href": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                },
+                "page": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "rating": {
+                        "type": "string"
+                      },
+                      "year": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "users_rating": {
+                        "type": "string"
+                      },
+                      "votes": {
+                        "type": "string"
+                      },
+                      "metascore": {
+                        "type": "string"
+                      },
+                      "img_url": {
+                        "type": "string"
+                      },
+                      "countries": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "languages": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "actors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "genre": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tagline": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "directors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "runtime": {
+                        "type": "string"
+                      },
+                      "imdb_url": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "links": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "rel": {
+                              "type": "string"
+                            },
+                            "method": {
+                              "type": "string"
+                            },
+                            "href": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "links": [
+                  {
+                    "rel": "self",
+                    "method": "GET",
+                    "href": "/api/movies/popularity/year/2020?limit=50"
+                  },
+                  {
+                    "rel": "first",
+                    "method": "GET",
+                    "href": "/api/movies/popularity/year/2020?limit=50"
+                  },
+                  {
+                    "rel": "prev",
+                    "method": "GET",
+                    "href": "/api/movies/popularity/year/2020?limit=50"
+                  },
+                  {
+                    "rel": "next",
+                    "method": "GET",
+                    "href": "/api/movies/popularity/year/2020?limit=50&page=2"
+                  }
+                ],
+                "page": 1,
+                "results": [
+                  {
+                    "title": "In Your Afterglow",
+                    "rating": "",
+                    "year": 2020,
+                    "users_rating": "9.9",
+                    "votes": "9",
+                    "metascore": "",
+                    "img_url": "https://m.media-amazon.com/images/M/MV5BNWE1MzEyOTktNTgzMi00ZGRhLTgzZDItZTkzZDUzMWIyMTIyXkEyXkFqcGdeQXVyMzEyNjU0OTM@._V1_UY268_CR163,0,182,268_AL__QL50.jpg",
+                    "countries": "['USA']",
+                    "languages": "['English']",
+                    "actors": "['Trish McGee', 'Caroline Kearns', 'Rich Henkels', 'Philippe Kane', 'Wyatt Gutridge', 'Moriah Forry', 'Brandon Flemmons', 'Robert Godfrey', 'Luke MacCloskey', 'Ned Walsh', 'Perri Druen', 'Christina Myers', 'Mary Avgerinos', 'Kim Hogeman', 'Blanda Nace']",
+                    "genre": "['Drama', 'Romance']",
+                    "tagline": "",
+                    "description": "A tormented psychology professor exploits the gift of a reluctant autistic girl to uncover the mystery of her past life.",
+                    "directors": "['Mike Gutridge']",
+                    "runtime": "",
+                    "imdb_url": "https://www.imdb.com/title/tt10836742/",
+                    "id": 34271,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/movies/id/34271"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Tromasterpiece Theatre: Poultrygeist",
+                    "rating": "",
+                    "year": 2020,
+                    "users_rating": "9.5",
+                    "votes": "6",
+                    "metascore": "",
+                    "img_url": "https://m.media-amazon.com/images/M/MV5BMjNkN2JiNzMtYTc1MC00ZTlmLWIzMjYtMjc3YmQ5YzUxNTc2XkEyXkFqcGdeQXVyMzAyOTg1MQ@@._V1_UY268_CR3,0,182,268_AL__QL50.jpg",
+                    "countries": "['USA']",
+                    "languages": "['English']",
+                    "actors": "['Addison Binek', 'Brad LaJoye', 'Rachel Odett', 'Nicole Castro', 'Stephen Albers', 'Tyler Deperro']",
+                    "genre": "['Comedy']",
+                    "tagline": "",
+                    "description": "Addison and his friends Corny (a talking popcorn box) and Reelie (a talking film reel) are at it again. This time watching and riffing on Troma's Poultrygeist: Night of the Chicken Dead.",
+                    "directors": "['Addison Binek']",
+                    "runtime": "",
+                    "imdb_url": "https://www.imdb.com/title/tt10463126/",
+                    "id": 22458,
+                    "links": [
+                      {
+                        "rel": "see",
+                        "method": "GET",
+                        "href": "/api/movies/id/22458"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "title": {
+                "type": "string",
+                "description": "The Title of the Movie"
+              },
+              "rating": {
+                "type": "string",
+                "description": "The Rating of the Movie"
+              },
+              "year": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Release Year of the Movie"
+              },
+              "users_rating": {
+                "type": "string",
+                "description": "The Users Rating of the Movie"
+              },
+              "votes": {
+                "type": "string",
+                "description": "The Votes on the Movie"
+              },
+              "metascore": {
+                "type": "string",
+                "description": "The Metascore of the Movie"
+              },
+              "img_url": {
+                "type": "string",
+                "description": "The URL of the Image"
+              },
+              "countries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Countries the Movie was Filmed"
+              },
+              "languages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Languages the Movie is Available"
+              },
+              "actors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Actors in the Movie"
+              },
+              "genre": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Genres of the Movie"
+              },
+              "tagline": {
+                "type": "string",
+                "description": "The Tagline of the Movie"
+              },
+              "description": {
+                "type": "string",
+                "description": "The Description of the Movie"
+              },
+              "directors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The Directors of the Movie"
+              },
+              "runtime": {
+                "type": "string",
+                "description": "The Runtime of the Movie"
+              },
+              "imdb_url": {
+                "type": "string",
+                "description": "The URL of the IMDB Page of the Movie"
+              },
+              "id": {
+                "type": "integer",
+                "description": "The ID of the Movie"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}

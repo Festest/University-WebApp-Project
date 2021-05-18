@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Web Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../p5.js"></script>
+    <script src="../sketch.js"></script>
+    <link rel="shortcut icon" href="/favicon-32x32.png" />
+</head>
+
+<body>
+<!-----------------
+navigation bar
+------------------>
+<nav>
+    <div class="logo">
+        <a href="/" style="text-decoration: none"><h1>Group 24</h1></a>
+    </div>
+    <ul class="members">
+        <li>
+          <a>André</a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/watch?v=DLzxrzFCyOs">Daniël</a>
+        </li>
+        <li>
+          <a>Hande</a>
+        </li>
+        <li>
+          <a>Hessel</a>
+        </li>
+        <li>
+          <a>Viktor</a>
+        </li>
+      </ul>
+</nav>
+
+<div class="left-side">
+    <ul>
+        <li>
+            <p>1. All actors in the dataset, optionally filtered by name</p>
+        </li>
+        <li>
+            <p>2. All available information about a specific movie identified by its unique
+                IMDB URL or by its (non-unique) title</p>
+        </li>
+        <li>
+            <p>3. All movies by a specific actor or director identified by (full) name and/or in specific year</p>
+        </li>
+        <li>
+            <p>4. All movie genres for a specific actor or director, optionally sorted by year
+                (ascending or descending)</p>
+        </li>
+        <li>
+            <p>5. An ordering of the movies ranked by their popularity (user rating) from
+                more to less popular, with the possibility to subset this order, e.g. the top
+                50 movies</p>
+        </li>
+        <li>
+            <p>6. Descriptive statistics (mean, median, standard deviation) for the popularity of all movies for a particular actor with an optional filter by year</p>
+        </li>
+        <li>
+            <p>7. Check if an actor exists in the database</p>
+        </li>
+        <li>
+            <p>8. All movies within a certain genre</p>
+        </li>
+        <li>
+            <p>9. Search for the awards and box office of a movie using the external <a style="color: white; text-decoration: underline" href="https://www.omdbapi.com/">OMDB API ↗</a></p>
+        </li>
+    </ul>
+</div>
+
+<div class="right-side">
+    <ul>
+        <li>
+            <a href="/buttons/button1.html">Actors</a>
+        </li>
+        <li>
+            <a href="/buttons/button2.html">Movie by title</a>
+        </li>
+        <li>
+            <a href="/buttons/button3.html">Movies by actor or director</a>
+        </li>
+        <li>
+            <a href="/buttons/button4.html">Genres by actor or director</a>
+        </li>
+        <li>
+            <h2>Top Movies</h2>
+            <form onsubmit="return false">
+                <label for="number05">Number of movies: </label><input id="number05">
+                <input type="button" id="search05" value="Search"/>
+                <br/>
+                <label for="movieYear05">Year(optional): </label><input id="movieYear05">
+            </form>
+        </li>
+        <li>
+            <a href="/buttons/button6.html">View statistics</a>
+        </li>
+        <li>
+            <a href="/buttons/button7.html">Check if an actor is in the DB</a>
+        </li>
+        <li>
+            <a href="/buttons/button8.html">All movies by genre</a>
+        </li>
+        <li>
+            <a href="/buttons/button9.html">Movie Awards & Box Office</a>
+        </li>
+        <li><h1>Downloads</h1>
+            <div class="form-inline">
+                <form action="/api/movies/" method="get">
+                    <button name="contentType" value="CSV" type="submit">Download All Movies</button>
+                </form>
+                &nbsp;
+                <form action="/api/actors/" method="get">
+                    <button name="contentType" value="CSV" type="submit">Download All Actors</button>
+                </form>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="display" id="display"></div>
+</body>
+</html>
